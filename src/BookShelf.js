@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
+import Options from './Options';
 
 class BookShelf extends Component {
   renderBookList(books) {
@@ -9,7 +10,10 @@ class BookShelf extends Component {
     return (
       <ul>
         {books.map(book => (
-          <li key={book.id}>{book.title}</li>
+          <li key={book.id}>
+            {book.title}
+            <Options selected={book.shelf} />
+          </li>
         ))}
       </ul>
     )
