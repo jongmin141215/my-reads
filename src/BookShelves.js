@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import * as BooksAPI from './BooksAPI';
 import BookShelf from './BookShelf';
 
@@ -30,6 +32,7 @@ class BookShelves extends Component {
         <BookShelf category="Currently Reading" books={this.state.currentlyReading} updateBookShelf={() => this.updateBookShelf()} />
         <BookShelf category="Want to Read"  books={this.state.wantToRead} updateBookShelf={() => this.updateBookShelf()}/>
         <BookShelf category="Read"  books={this.state.read} updateBookShelf={() => this.updateBookShelf()}/>
+        <Link to="/search">Add Book</Link>
       </div>
     )
   }
