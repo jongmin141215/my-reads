@@ -4,21 +4,32 @@ import BookShelf from './BookShelf';
 
 class BookShelves extends Component {
   state = {
-    books: []
+    currentlyReading: [],
+    wantToRead: [],
+    read: [],
   }
-  componentDidMount() {
+  updateBookShelves() {
     BooksAPI.getAll().then(books => (
-      this.setState({books: books})
+      this.setState({
+        currentlyReading: books.filter(book => book.shelf === "currentlyReading"),
+        wantToRead: books.filter(book => book.shelf === "wantToRead"),
+        read: books.filter(book => book.shelf === "read")
+      })
     ))
   }
-
+  componentDidMount() {
+    this.updateBookShelves();
+  }
+  updateBookShelf() {
+    this.updateBookShelves();
+  }
   render() {
     return (
       <div>
       Bookshelves!
-        <BookShelf category="Currently Reading" books={this.state.books.filter(book => book.shelf === "currentlyReading")} />
-        <BookShelf category="Want to Read"  books={this.state.books.filter(book => book.shelf === "wantToRead")}/>
-        <BookShelf category="Read"  books={this.state.books.filter(book => book.shelf === "read")}/>
+        <BookShelf category="Currently Reading" books={this.state.currentlyReading} updateBookShelf={() => this.updateBookShelf()} />
+        <BookShelf category="Want to Read"  books={this.state.wantToRead} updateBookShelf={() => this.updateBookShelf()}/>
+        <BookShelf category="Read"  books={this.state.read} updateBookShelf={() => this.updateBookShelf()}/>
       </div>
     )
   }
