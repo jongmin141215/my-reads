@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import * as BooksAPI from './BooksAPI';
+
 import Options from './Options';
 
 class BookShelf extends Component {
   renderBookList(books) {
-    if (books.length == 0) {
+    if (books.length === 0) {
       return <h5>There are no books in this shelf.</h5>
     }
     return (
