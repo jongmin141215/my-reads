@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Options from './Options';
 import * as BooksAPI from './BooksAPI';
 
 class Search extends Component {
@@ -16,6 +17,7 @@ class Search extends Component {
           {books.map(book => (
             <li key={book.id}>
               {book.title}
+              <Options book={book} selected={book.shelf || "none"} updateBookShelf={() => alert("do something")} />
             </li>
           ))}
         </ul>
@@ -28,7 +30,8 @@ class Search extends Component {
   }
   search(query, maxResults) {
     BooksAPI.search(query, maxResults).then(books => {
-      this.setState({books})
+      this.setState({books});
+      // console.log(books[0]);
     })
   }
   render() {
