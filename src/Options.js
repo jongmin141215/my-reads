@@ -9,7 +9,7 @@ class Options extends Component {
     })
   }
   render() {
-    console.log("Options props", this.props)
+    console.log("PROPS", this.props.selected)
     return (
       <div>
         <select defaultValue={this.props.selected} onChange={this.handleChange.bind(this)}>

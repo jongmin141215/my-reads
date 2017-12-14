@@ -6,7 +6,13 @@ import * as BooksAPI from './BooksAPI';
 class Search extends Component {
   state = {
     query: "",
-    books: []
+    books: [],
+    searchResult: []
+  }
+  componentDidMount() {
+    BooksAPI.getAll().then(books => (
+      this.setState({books})
+    ))
   }
   renderBookList(books) {
     console.log(books)
@@ -29,9 +35,19 @@ class Search extends Component {
     this.search(query, 10)
   }
   search(query, maxResults) {
-    BooksAPI.search(query, maxResults).then(books => {
-      this.setState({books});
-      // console.log(books[0]);
+    BooksAPI.search(query, maxResults).then(searchResult => {
+      console.log("search result", searchResult)
+      // this.setState({searchResult})
+      searchResult.map(result => {
+        this.state.books.map(book => {
+          if (result.id === book.id) {
+            const index = searchResult.indexOf(result);
+            searchResult.splice(index, 1, book)
+          }
+        })
+      })
+      console.log("RESULT!!!!!!!!", searchResult)
+      this.setState({searchResult})
     })
   }
   render() {
@@ -41,10 +57,11 @@ class Search extends Component {
           value={this.state.term}
           onChange={(event) => this.updateQuery(event.target.value)}
         />
-        {this.renderBookList(this.state.books)}
+        {this.renderBookList(this.state.searchResult)}
       </div>
     );
   }
+
 }
 
 export default Search;
