@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Options from './Options';
 
 class BookShelf extends Component {
+  static propTypes = {
+    category: PropTypes.string.isRequired,
+    books: PropTypes.array.isRequired,
+    updateBookShelf: PropTypes.func.isRequired
+  }
   renderBookList(books) {
     if (books.length === 0) {
       return <h5>There are no books in this shelf.</h5>

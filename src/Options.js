@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import * as BooksAPI from './BooksAPI';
 
 class Options extends Component {
+  static propTypes = {
+    book: PropTypes.object.isRequired,
+    selected: PropTypes.string.isRequired,
+    updateBookShelf: PropTypes.func.isRequired
+  }
   handleChange(event) {
     BooksAPI.update(this.props.book, event.target.value).then(data => {
       console.log("data", data);
@@ -9,7 +16,7 @@ class Options extends Component {
     })
   }
   render() {
-    console.log("PROPS", this.props.selected)
+    console.log("PROPS", this.props)
     return (
       <div>
         <select defaultValue={this.props.selected} onChange={this.handleChange.bind(this)}>
