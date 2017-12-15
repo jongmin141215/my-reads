@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Options from './Options';
+import Book from './Book';
 
 class BookShelf extends Component {
   static propTypes = {
@@ -17,7 +18,7 @@ class BookShelf extends Component {
       <ul>
         {books.map(book => (
           <li key={book.id}>
-            {book.title}
+            <Book book={book} />
             <Options book={book} selected={book.shelf} updateBookShelf={() => this.props.updateBookShelf()} />
           </li>
         ))}
