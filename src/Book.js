@@ -3,7 +3,7 @@ import React from 'react';
 function Book(props) {
   const renderAuthors = (book) => {
     if (book.authors) {
-      return book.authors.map(author => <div className="author">{author}</div>)
+      return book.authors.map(author => <div className="author" key={author}>{author}</div>)
     } else {
       return <div className="author">Unknown</div>
     }

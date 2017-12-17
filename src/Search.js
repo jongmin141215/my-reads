@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Options from './Options';
 import * as BooksAPI from './BooksAPI';
@@ -69,6 +70,7 @@ class Search extends Component {
           onChange={(event) => this.updateQuery(event.target.value)}
         />
         {this.renderBookList(this.state.searchResult)}
+        <Link to="/" className="back">←</Link>
       </div>
     );
   }
