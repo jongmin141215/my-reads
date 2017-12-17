@@ -20,9 +20,9 @@ class Search extends Component {
     if (books !== undefined) {
       console.log("hi");
       return (
-        <ul class="books">
+        <ul className="books">
           {books.map(book => (
-            <li key={book.id} class="book">
+            <li key={book.id} className="book">
               <Book book={book} />
               <Options book={book} selected={book.shelf || "none"} updateBookShelf={() => alert("do something")} />
             </li>
@@ -36,26 +36,35 @@ class Search extends Component {
     this.search(query, 10)
   }
   search(query, maxResults) {
-    BooksAPI.search(query, maxResults).then(searchResult => {
-      console.log("search result", searchResult)
-      // this.setState({searchResult})
-      searchResult.map(result => {
-        this.state.books.map(book => {
-          if (result.id === book.id) {
-            const index = searchResult.indexOf(result);
-            searchResult.splice(index, 1, book)
-          }
-        })
+    if (query !== "") {
+      BooksAPI.search(query, maxResults).then(searchResult => {
+        console.log("search result", searchResult)
+        console.log("searchResult.error", searchResult.error)
+        if (searchResult.error === undefined) {
+          searchResult.map(result => {
+            this.state.books.map(book => {
+              if (result.id === book.id) {
+                const index = searchResult.indexOf(result);
+                searchResult.splice(index, 1, book)
+              }
+            })
+          })
+          console.log("RESULT!!!!!!!!", searchResult)
+          this.setState({searchResult})
+        } else {
+          this.setState({searchResult: []})
+        }
       })
-      console.log("RESULT!!!!!!!!", searchResult)
-      this.setState({searchResult})
-    })
+    } else {
+      this.setState({searchResult: []})
+    }
+
   }
   render() {
     return (
       <div>
         <input type="text" placeholder="Search"
-          class="searchBar"
+          className="searchBar"
           value={this.state.term}
           onChange={(event) => this.updateQuery(event.target.value)}
         />

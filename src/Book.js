@@ -1,11 +1,18 @@
 import React from 'react';
 
 function Book(props) {
+  const renderAuthors = (book) => {
+    if (book.authors) {
+      return book.authors.map(author => <div className="author">{author}</div>)
+    } else {
+      return <div className="author">Unknown</div>
+    }
+  }
   return (
     <div>
-      <img src={props.book.imageLinks.thumbnail} class="cover" />
-      <div class="title">{props.book.title}</div>
-      {props.book.authors.map(author => <div class="author">{author}</div>)}
+      <img src={props.book.imageLinks.thumbnail} className="cover" />
+      <div className="title">{props.book.title}</div>
+      {renderAuthors(props.book)}
     </div>
   )
 }

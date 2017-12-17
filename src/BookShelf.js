@@ -15,9 +15,9 @@ class BookShelf extends Component {
       return <h5>There are no books in this shelf.</h5>
     }
     return (
-      <ul class="books">
+      <ul className="books">
         {books.map(book => (
-          <li key={book.id} class="book">
+          <li key={book.id} className="book">
             <Book book={book} />
             <Options book={book} selected={book.shelf} updateBookShelf={() => this.props.updateBookShelf()} />
           </li>
