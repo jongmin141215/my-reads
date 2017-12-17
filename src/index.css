@@ -3,3 +3,35 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.book {
+  display: flex;
+  flex-flow: column wrap;
+  flex-basis: 10%;
+  margin: 20px 15px 0 15px;
+}
+.cover {
+  align-self: flex-start;
+}
+.books {
+  display: flex;
+  list-style-type: none;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.author {
+  font-size: 0.8em;
+  color: #888;
+}
+.title {
+  font-size: 0.9em;
+  margin: 5px auto;
+}
+.searchBar {
+  width: 100%;
+  line-height: 2em;
+  box-shadow: 0px 5px 20px #aaa;
+}
+input[type="text"] {
+  font-size: 1.5em;
+  padding-left: 20px;
+}

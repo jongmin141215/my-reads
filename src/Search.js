@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Options from './Options';
 import * as BooksAPI from './BooksAPI';
+import Book from './Book';
 
 class Search extends Component {
   state = {
@@ -19,10 +20,10 @@ class Search extends Component {
     if (books !== undefined) {
       console.log("hi");
       return (
-        <ul>
+        <ul class="books">
           {books.map(book => (
-            <li key={book.id}>
-              {book.title}
+            <li key={book.id} class="book">
+              <Book book={book} />
               <Options book={book} selected={book.shelf || "none"} updateBookShelf={() => alert("do something")} />
             </li>
           ))}
@@ -54,6 +55,7 @@ class Search extends Component {
     return (
       <div>
         <input type="text" placeholder="Search"
+          class="searchBar"
           value={this.state.term}
           onChange={(event) => this.updateQuery(event.target.value)}
         />
