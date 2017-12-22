@@ -5,8 +5,8 @@ You can organize your favorite books using this application!
 There are three bookshelves: *Currently Reading*, *Want to Read*, and *Read*.   
 You can also search books and add them to your personal bookshelves!  
 
-![main page](/images/main.png)  
-![search page](/images/search.png)  
+![main page](/public/images/main.png)  
+![search page](/public/images/search.png)  
 
 #### Getting started:
 ```
