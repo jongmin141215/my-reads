@@ -37,27 +37,23 @@ input[type="text"] {
   font-size: 1.5em;
   padding-left: 20px;
 }
-.add {
+.button {
   background-color: green;
   text-decoration: none;
   border-radius: 50%;
-  padding: 9px 18px;
   color: white;
   font-size: 2em;
   position: fixed;
-  bottom: 20px;
   right: 20px;
+  box-shadow: 2px 2px 5px #aaa;
+}
+.add {
+  padding: 9px 18px;
+  bottom: 20px;
 }
 .back {
-  background-color: green;
-  text-decoration: none;
-  border-radius: 50%;
   padding: 10px 12px;
-  color: white;
-  font-size: 2em;
-  position: fixed;
   top: 80px;
-  right: 20px;
 }
 .category {
   margin-left: 3%;

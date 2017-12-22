@@ -32,7 +32,7 @@ class BookShelves extends Component {
         <BookShelf category="Currently Reading" books={this.state.currentlyReading} updateBookShelf={() => this.updateBookShelf()} />
         <BookShelf category="Want to Read"  books={this.state.wantToRead} updateBookShelf={() => this.updateBookShelf()}/>
         <BookShelf category="Read"  books={this.state.read} updateBookShelf={() => this.updateBookShelf()}/>
-        <Link to="/search" className="add">+</Link>
+        <Link to="/search" className="add button">+</Link>
       </div>
     )
   }

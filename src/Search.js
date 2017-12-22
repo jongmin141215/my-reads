@@ -64,7 +64,7 @@ class Search extends Component {
           onChange={(event) => this.updateQuery(event.target.value)}
         />
         {this.renderBookList(this.state.searchResult)}
-        <Link to="/" className="back">←</Link>
+        <Link to="/" className="back button">←</Link>
       </div>
     );
   }
