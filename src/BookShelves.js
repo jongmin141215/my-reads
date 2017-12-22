@@ -28,7 +28,7 @@ class BookShelves extends Component {
   render() {
     return (
       <div>
-      Bookshelves!
+        <div id="logo">My Reads</div>
         <BookShelf category="Currently Reading" books={this.state.currentlyReading} updateBookShelf={() => this.updateBookShelf()} />
         <BookShelf category="Want to Read"  books={this.state.wantToRead} updateBookShelf={() => this.updateBookShelf()}/>
         <BookShelf category="Read"  books={this.state.read} updateBookShelf={() => this.updateBookShelf()}/>

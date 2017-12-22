@@ -12,14 +12,14 @@ class BookShelf extends Component {
   }
   renderBookList(books) {
     if (books.length === 0) {
-      return <h5>There are no books in this shelf.</h5>
+      return <h5 className="no-books">There are no books in this shelf.</h5>
     }
     return (
       <ul className="books">
         {books.map(book => (
           <li key={book.id} className="book">
             <Book book={book} />
-            <Options book={book} selected={book.shelf} updateBookShelf={() => this.props.updateBookShelf()} />
+            <Options className={book.id} book={book} selected={book.shelf} updateBookShelf={() => this.props.updateBookShelf()} />
           </li>
         ))}
       </ul>
@@ -28,7 +28,7 @@ class BookShelf extends Component {
   render() {
     return (
       <div>
-        <h2>{this.props.category}</h2>
+        <h2 className="category">{this.props.category}</h2>
         {this.renderBookList(this.props.books)}
       </div>
     );

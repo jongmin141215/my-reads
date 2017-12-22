@@ -6,17 +6,19 @@ body {
 .book {
   display: flex;
   flex-flow: column wrap;
-  flex-basis: 10%;
-  margin: 20px 15px 0 15px;
-}
-.cover {
-  align-self: flex-start;
+  flex-basis: 13%;
+  margin: 10px 20px 0 20px;
 }
 .books {
   display: flex;
   list-style-type: none;
   flex-flow: row wrap;
   justify-content: space-around;
+  padding-left: 0;
+}
+.cover {
+  box-shadow: 10px 10px 10px #aaa;
+  margin-bottom: 10px;
 }
 .author {
   font-size: 0.8em;
@@ -56,4 +58,16 @@ input[type="text"] {
   position: fixed;
   top: 80px;
   right: 20px;
+}
+.category {
+  margin-left: 3%;
+}
+#logo {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 30px auto;
+}
+.no-books {
+  margin: 4%;
 }

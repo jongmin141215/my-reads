@@ -17,15 +17,13 @@ class Search extends Component {
     ))
   }
   renderBookList(books) {
-    console.log(books)
     if (books !== undefined) {
-      console.log("hi");
       return (
         <ul className="books">
           {books.map(book => (
             <li key={book.id} className="book">
               <Book book={book} />
-              <Options book={book} selected={book.shelf || "none"} updateBookShelf={() => alert("do something")} />
+              <Options book={book} selected={book.shelf || "none"} updateBookShelf={() => (null)} />
             </li>
           ))}
         </ul>
@@ -39,8 +37,6 @@ class Search extends Component {
   search(query, maxResults) {
     if (query !== "") {
       BooksAPI.search(query, maxResults).then(searchResult => {
-        console.log("search result", searchResult)
-        console.log("searchResult.error", searchResult.error)
         if (searchResult.error === undefined) {
           searchResult.map(result => {
             this.state.books.map(book => {
@@ -50,7 +46,6 @@ class Search extends Component {
               }
             })
           })
-          console.log("RESULT!!!!!!!!", searchResult)
           this.setState({searchResult})
         } else {
           this.setState({searchResult: []})
@@ -59,7 +54,6 @@ class Search extends Component {
     } else {
       this.setState({searchResult: []})
     }
-
   }
   render() {
     return (
@@ -74,7 +68,6 @@ class Search extends Component {
       </div>
     );
   }
-
 }
 
 export default Search;

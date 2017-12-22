@@ -11,12 +11,10 @@ class Options extends Component {
   }
   handleChange(event) {
     BooksAPI.update(this.props.book, event.target.value).then(data => {
-      console.log("data", data);
       this.props.updateBookShelf()
     })
   }
   render() {
-    console.log("PROPS", this.props)
     return (
       <div>
         <select defaultValue={this.props.selected} onChange={this.handleChange.bind(this)}>
